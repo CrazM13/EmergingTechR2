@@ -8,6 +8,9 @@ public class GPSUnit {
 	public static readonly GPSUnit METER = new GPSUnit("M", 1f);
 	public static readonly GPSUnit KILOMETER = new GPSUnit("Km", 1000f);
 
+	public static readonly GPSUnit FEET = new GPSUnit("Ft", 3.28084f);
+	public static readonly GPSUnit MILE = new GPSUnit("Mi", 0.00062137121212121f);
+
 	public static readonly GPSUnit SECOND = new GPSUnit("s", 1f);
 	public static readonly GPSUnit MINUTE = new GPSUnit("m", 1f/60f);
 	public static readonly GPSUnit HOUR = new GPSUnit("h", 1f/3600f);
@@ -34,6 +37,14 @@ public class GPSUnit {
 
 	public double ConvertToBase(double value) {
 		return value / this.multiplierFromBase;
+	}
+
+	public string Format(double value) {
+		return $"{value.ToString("f2")}{this.name}";
+	}
+
+	public string GetName() {
+		return this.name;
 	}
 
 }

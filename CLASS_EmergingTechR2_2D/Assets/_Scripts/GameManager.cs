@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour {
 
 	void Start() {
 
+		gps.SetUnits(GPSUnit.MILE, GPSUnit.HOUR);
+		gps.UpdateDistance = 5f;
+
 	}
 
 	void Update() {
@@ -24,7 +27,7 @@ public class GameManager : MonoBehaviour {
 			LocationInfo? info = gps.GetPreviousLocationData();
 			if (info.HasValue) {
 				LocationInfo infoObj = info.Value;
-				display.text = $"Latitude: {infoObj.latitude}\nLongitude: {infoObj.longitude}\nDistance: {(float)gps.GetTotalDistance()}\nSpeed: {(float)gps.CalculateAverageSpeed()}";
+				display.text = $"Latitude: {infoObj.latitude}\nLongitude: {infoObj.longitude}\nDistance: {gps.GetTotalDistanceFormatted()}\nSpeed: {gps.GetCurrentSpeedFormatted()}";
 				gps.SetUpdateValuesFlag(false);
 			} else {
 				display.text = Input.location.status.ToString();
