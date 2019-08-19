@@ -1,8 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - FlagScript
     - GPSTracker
     - GameManager
+    - ProgressBar
+    - RotateImage
+    - ScrollTexture
+    - UIManager
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -14,10 +19,11 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/_Scenes/TestScene.unity:
@@ -38,8 +44,6 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9322}
-    - Class: 114
       Script: {instanceID: 9324}
     - Class: 114
       Script: {instanceID: 9330}
@@ -48,6 +52,10 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9344}
     - Class: 114
+      Script: {instanceID: 9352}
+    - Class: 114
+      Script: {instanceID: 9366}
+    - Class: 114
       Script: {instanceID: 9380}
     - Class: 114
       Script: {instanceID: 9382}
@@ -55,6 +63,16 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9722}
     - Class: 114
       Script: {instanceID: 10364}
+    - Class: 114
+      Script: {instanceID: 11660}
+    - Class: 114
+      Script: {instanceID: 13632}
+    - Class: 114
+      Script: {instanceID: 18166}
+    - Class: 114
+      Script: {instanceID: 19580}
+    - Class: 114
+      Script: {instanceID: 23770}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -672,7 +690,7 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
-      Hash: db2370b69b7405c1d5fda2a0204dbcaf
+      Hash: 5aa141322f0196fce8cac2962e2d74bd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -718,7 +736,37 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 2aac20b089efa706b7cda16b8a74c52d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIManager
+  - hash:
+      serializedVersion: 2
+      Hash: 0b29702460e65d4ffc36e485671f6d3e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProgressBar
+  - hash:
+      serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RotateImage
+  - hash:
+      serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScrollTexture
+  - hash:
+      serializedVersion: 2
+      Hash: 0a0ddb67f639b5791feb9ba827bfdefc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FlagScript
   platform: 13
   scenePathNames:
   - Assets/_Scenes/TestScene.unity
-  playerPath: C:/Users/005505840/Desktop/R2BUILD/Sepulveda_R2.apk
+  playerPath: C:/Users/005505840/Desktop/Build/R2.apk

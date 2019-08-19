@@ -6,33 +6,23 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public float goalDistance = 1f;
-	public float goalDisplayDistance = 1f;
 
-
-	// TMP
 	public GPSTracker gps;
-	public Text display;
-	// END TMP
+	public UIManager ui;
 
 	void Start() {
 
 		gps.SetUnits(GPSUnit.MILE, GPSUnit.HOUR);
 		gps.UpdateDistance = 5f;
 
+		ui.UpdateUI(gps, goalDistance);
+
 	}
 
 	void Update() {
-		// TMP
 		if (gps.ShouldUpdateValues()) {
-			LocationInfo? info = gps.GetPreviousLocationData();
-			if (info.HasValue) {
-				LocationInfo infoObj = info.Value;
-				display.text = $"Latitude: {infoObj.latitude}\nLongitude: {infoObj.longitude}\nDistance: {gps.GetTotalDistanceFormatted()}\nSpeed: {gps.GetCurrentSpeedFormatted()}";
-				gps.SetUpdateValuesFlag(false);
-			} else {
-				display.text = Input.location.status.ToString();
-			}
+			gps.SetUpdateValuesFlag(false);
+			ui.UpdateUI(gps, goalDistance);
 		}
-		// END TMP
 	}
 }

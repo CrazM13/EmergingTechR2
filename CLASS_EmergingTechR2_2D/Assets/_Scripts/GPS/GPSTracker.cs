@@ -41,12 +41,16 @@ public class GPSTracker : MonoBehaviour {
 		return deltaTime != 0 ? distanceUnit.ConvertFromBase(deltaDistance) / timeUnit.ConvertFromBase(deltaTime) : 0;
 	}
 
+	public double CalculateCurrentSpeedWithoutUnits() {
+		return deltaTime != 0 ? deltaDistance / deltaTime : 0;
+	}
+
 	public string GetAverageSpeedFormatted() {
 		return $"{CalculateAverageSpeed().ToString("f2")}{distanceUnit.GetName()}/{timeUnit.GetName()}";
 	}
 
 	public string GetCurrentSpeedFormatted() {
-		return $"{distanceUnit.ConvertFromBase(deltaDistance).ToString("f3")}/{timeUnit.ConvertFromBase(deltaTime).ToString("f3")}\n{CalculateCurrentSpeed().ToString("f2")}{distanceUnit.GetName()}/{timeUnit.GetName()}";
+		return $"{CalculateCurrentSpeed().ToString("f2")}{distanceUnit.GetName()}/{timeUnit.GetName()}";
 	}
 
 	public double GetTotalTime() {
@@ -107,6 +111,7 @@ public class GPSTracker : MonoBehaviour {
 			if (this.deltaDistance > 0 || !prevState.HasValue) {
 				prevState = currentLocationDetails;
 				prevTimestamp = Time.unscaledTime;
+				SetUpdateValuesFlag();
 			}
 
 		}
@@ -130,6 +135,14 @@ public class GPSTracker : MonoBehaviour {
 		double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
 
 		return (float)6371000 * c;
+	}
+
+	public GPSUnit GetDistanceUnit() {
+		return distanceUnit;
+	}
+
+	public GPSUnit GetTimeUnit() {
+		return timeUnit;
 	}
 
 }
